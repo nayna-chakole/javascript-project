@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Happy Birthday My Love ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #1b1b2f, #0f0f1a);
+  color: white;
+  overflow: hidden;
+}
+
+/* Card */
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 92%;
+  max-width: 360px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  padding: 22px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(255,0,120,0.35);
+}
+
+/* Headings */
+h1 {
+  color: #ff6b9f;
+  font-size: 1.6rem;
+}
+
+p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #ff6b9f;
+}
+
+/* Inputs */
+input {
+  width: 85%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #f9d4e1;
+  outline: none;
+  font-size: 1rem;
+  box-shadow: 2px 2px 8px rgba(255,75,139,0.2);
+}
+
+/* Buttons */
+button {
+  margin-top: 15px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: none;
+  background: #f84886;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.95);
+  background-color: #e65d8d;
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.gallery img {
+  width: 85px;
+  height: 85px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+/* Hidden */
+.hidden {
+  display: none;
+}
+
+/* Back button on full image */
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 18px;
+  border-radius: 25px;
+  border: none;
+  background: rgba(255, 75, 139, 0.9);
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  z-index: 25;
+}
+
+.video-wrapper {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255,75,139,0.4);
+}
+
+.video-wrapper {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255,75,139,0.4);
+  max-height: 290px;     
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 320px;            
+  object-fit: contain;      
+  background: black;
+  display: block;
+}
+
+
+
+/* Fullscreen Image */
+.fullscreen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.fullscreen img {
+  max-width: 95%;
+  max-height: 85%;
+  border-radius: 15px;
+}
+
+.moving-heart {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transform-origin: center;
+  animation: glowHeartbeat 1.4s infinite ease-in-out;
+}
+
+/* Heartbeat + Glow */
+@keyframes glowHeartbeat {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px #ff4b8b);
+  }
+  50% {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 14px #ff6b9f);
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px #ff4b8b);
+  }
+}
+
+
+
+
+/* Love Letter Popup */
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+}
+
+.popup-content {
+  width: 90%;
+  max-width: 350px;
+  background: #1e1e2f;
+  padding: 22px;
+  border-radius: 20px;
+}
+
+/* Hearts */
+.heart {
+  position: absolute;
+  font-size: 22px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); opacity: 1; }
+  to { transform: translateY(-10vh); opacity: 0; }
+}
+
+</style>
+</head>
+
+<body> 
+
+<audio id="music" src="./whatsapp-ptt-2026-01-27-at-205441_dcA0eTmZ.ogg"></audio>
+
+<!-- LOCK SCREEN -->
+<div class="card" id="lock">
+  <h1>🔐 Secret Surprise</h1>
+ <p><b>Gusse password, if you can!!😉</b>DDMMYYYY</p>
+  <input type="password" id="password" placeholder="“That special date in numbers 💕”">
+  <br>
+  <button onclick="unlock()">Unlock🤍</button>
+</div>
+
+<!-- MAIN CARD -->
+<div class="card hidden" id="main">
+  <h1>🎉Wish you a Happiest Birthday my love!! <span class="moving-heart">❤️</span></h1>
+
+  <p>
+    You make my world softer, warmer, and happier 🥹<br>
+    Today is all about YOU.
+  </p>
+
+  <div class="gallery">
+    <img src="./WhatsApp Image 2026-01-27 at 20.26.20.jpeg" onclick="openFull(this.src)">
+    <img src="./WhatsApp Image 2026-01-27 at 20.26.21 (1).jpeg" onclick="openFull(this.src)">
+    <img src="./WhatsApp Image 2026-01-27 at 20.26.21.jpeg" onclick="openFull(this.src)">
+  </div>
+ <!-- Love Video -->
+<div class="video-wrapper">
+  <video
+    src="WhatsApp Video 2026-01-27 at 20.28.48.mp4"
+    controls
+    playsinline
+    muted
+    preload="metadata">
+  </video>
+</div>
+
+  <button onclick="showLetter()">Read My Letter 💌</button>
+</div>
+
+<!-- FULL IMAGE -->
+<div class="fullscreen" id="full">
+  <button class="back-btn" onclick="closeFull()">⬅ Back</button>
+  <img id="fullImg">
+</div>
+
+
+<!-- LETTER -->
+<div class="popup" id="letter">
+  <div class="popup-content">
+    <h2>💖 To My cutu baby! 💖</h2>
+    <p>
+      Happy Birthday my love 🥹❤️<br><br>
+      Loving you is my favorite thing in the world.
+      Thank you for being my happiness, my comfort,
+      and my forever. 💕Sorry yrr mai kaffi pareshan krti hu tuje 
+      bohot gussa bhi krti hu uske liye bhi sorry, but iloveyou baby and 
+      I wish we always celebrate your bday together!!
+      Happy Birthday again, my Baby ILoveU 😘
+    </p>
+    <button onclick="closeLetter()">Close 😙</button>
+  </div>
+</div>
+
+<script>
+const CORRECT_PASSWORD = "25102025"; 
+
+function unlock() {
+  if (password.value === CORRECT_PASSWORD) {
+    lock.style.display = "none";
+    main.classList.remove("hidden");
+    music.play();
+    hearts();
+    confetti();
+  } else {
+    alert("Seriously? 😳 You don't know it 😒 Think again, babyy!!");
+
+  }
+}
+
+function openVideo() {
+  fullVideo.src = "WhatsApp Video 2026-01-27 at 20.28.48.mp4";
+  videoFull.style.display = "flex";
+  fullVideo.play();
+}
+
+function closeVideo() {
+  fullVideo.pause();
+  videoFull.style.display = "none";
+}
+
+
+function openFull(src) {
+  fullImg.src = src;
+  full.style.display = "flex";
+}
+
+function showLetter() {
+  letter.style.display = "flex";
+}
+
+function closeLetter() {
+  letter.style.display = "none";
+}
+
+function closeFull() {
+  full.style.display = "none";
+}
+
+
+function hearts() {
+  for (let i = 0; i < 20; i++) {
+    let h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 70000);
+  }
+}
+
+</script>
+
+</body>
+</html>
